@@ -1,0 +1,12 @@
+torch>=2.0
+torchvision>=0.15
+numpy
+opencv-python
+albumentations>=1.3
+scikit-image
+tqdm
+tensorboard
+lpips
+torchmetrics
+scipy
+pytorch-lightning>=2.0
