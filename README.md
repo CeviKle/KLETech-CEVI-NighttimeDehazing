@@ -175,13 +175,3 @@ This repository is released under the [MIT License](LICENSE).
 - [NH-Haze](https://competitions.codalab.org/competitions/22236) — Real non-homogeneous haze pairs
 - NTIRE 2026 Challenge Organizers
 
-### Citation
-If you find this work useful, please cite:
-```bibtex
-@inproceedings{nightdehazenet2026,
-  title={NightDehazeNet: Multi-Scale Attention U-Net with Curriculum Learning for Nighttime Image Dehazing},
-  author={Shet, Tejas R R and Akalwadi, Nikhil and Tabib, Ramesh Ashok and Mudenagudi, Uma},
-  booktitle={NTIRE 2026 Workshop, CVPR},
-  year={2026}
-}
-```
