@@ -157,9 +157,9 @@ NTIRE2026-KLETech-CEVI-NighttimeDehazing/
 ├── run_curriculum.sh         # End-to-end 3-stage training script
 ├── requirements.txt          # Python dependencies
 ├── LICENSE                   # MIT License
-├── README.md                 # This file
+├── README.md
 └── model_weights/
-    └── best_model.pth        # Trained model checkpoint (download separately)
+    └── best_model.pth        # Trained model checkpoint
 ```
 
 ---
