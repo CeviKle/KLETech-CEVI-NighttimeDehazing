@@ -104,19 +104,18 @@ python train_lightning.py --csv reside_paths.csv --stage 1 \
 # Stage 2: Domain Adaptation on NH-Haze + GTA5 Nighttime
 python train_lightning.py --csv nh_haze_paths.csv --val_csv ntire_val_real.csv --stage 2 \
     --resume experiments/checkpoints/stage_1/best_model.pth \
-    --batch_size 4 --epochs 17 --patch_size 256
+    --batch_size 4 --epochs 15 --patch_size 256 --repeat 20
 
 # Stage 3: NTIRE Refinement on 25 paired images
 python train_lightning.py --csv ntire_train_real.csv --val_csv ntire_val_real.csv --stage 3 \
     --resume experiments/checkpoints/stage_2/best_model.pth \
-    --batch_size 2 --epochs 50 --patch_size 320
+    --batch_size 2 --epochs 50 --patch_size 320 --repeat 30
 ```
 
 ### External Datasets Used:
 - **RESIDE ITS + SOTS** — ~13,990 indoor/outdoor haze pairs
 - **NH-Haze** — 55 real non-homogeneous haze pairs
-- **GTA5 Nighttime** — 787 synthetic nighttime haze pairs
-- **Internet clear nighttime images** — ~461 images used for style augmentation only
+- **GTA5 Nighttime** — 864 synthetic nighttime haze pairs
 
 ---
 
@@ -134,7 +133,7 @@ python train_lightning.py --csv ntire_train_real.csv --val_csv ntire_val_real.cs
 | Total Parameters | 24.03M |
 | Attention Mechanisms | SE, CBAM, Transposed Multi-Head, Gated Skip Fusion |
 | Context Block | Multi-Scale Dilated Conv (d=1,2,4) |
-| Loss Function | Charbonnier + SSIM + VGG Perceptual + FFT + Color Angle |
+| Loss Function | Charbonnier + SSIM + VGG Perceptual + FFT + Color (Consistency + Angle) |
 | Training Time | ~34 hours (3 stages, single RTX 3090) |
 | Inference | Seamless Tiled (512px, 160px overlap) + 8× Self-Ensemble |
 
@@ -159,7 +158,7 @@ NTIRE2026-KLETech-CEVI-NighttimeDehazing/
 ├── requirements.txt          # Python dependencies
 ├── LICENSE                   # MIT License
 ├── README.md                 # This file
-└── model_zoo/
+└── model_weights/
     └── best_model.pth        # Trained model checkpoint (download separately)
 ```
 
