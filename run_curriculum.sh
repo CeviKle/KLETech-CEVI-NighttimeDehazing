@@ -31,6 +31,7 @@ for f in "${REQUIRED_CSVS[@]}"; do
     if [ -f "$f" ]; then
         count=$(wc -l < "$f")
         echo "  OK: $f ($((count-1)) entries)"
+        python split_ntire.py
     else
         echo "  [!] MISSING: $f"
         exit 1
@@ -44,7 +45,7 @@ nice -n 10 python train_lightning.py --csv reside_paths.csv --stage 1 --batch_si
 
 echo "=== STEP 2: NH-Haze + GTA5 + NTIRE Adaptation (Stage 2) ==="
 nice -n 10 python train_lightning.py --csv nh_haze_paths.csv --val_csv ntire_val_real.csv --stage 2 \
-    --resume experiments/checkpoints/stage_1/best_model.pth --batch_size 4 --epochs 50 --patch_size 256
+    --resume experiments/checkpoints/stage_1/best_model.pth --batch_size 4 --epochs 15 --patch_size 256
 
 echo "=== STEP 3: NTIRE Refinement (Stage 3) ==="
 nice -n 10 python train_lightning.py --csv ntire_train_real.csv --val_csv ntire_val_real.csv --stage 3 \
