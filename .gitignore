@@ -1,0 +1,22 @@
+# Python Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Experiment Logs & Results
+experiments/
+output_results/
+lightning_logs/
+.ipynb_checkpoints/
+
+# Data Index Files (Generated locally)
+*.csv
+!ntire_train_full.csv
+!ntire_train_real.csv
+!ntire_val_real.csv
+night_clear_paths.txt
+
+# OS specifics
+.DS_Store
+Thumbs.db
