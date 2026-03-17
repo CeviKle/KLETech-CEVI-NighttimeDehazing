@@ -135,7 +135,7 @@ python train_lightning.py --csv ntire_train_real.csv --val_csv ntire_val_real.cs
 | Training Time | ~34 hours (3 stages, single RTX 3090) |
 | Inference | Seamless Tiled (512px, 160px overlap) + 8× Self-Ensemble |
 
-For detailed architecture and training descriptions, see the [FactSheet (PDF)](TODO_ADD_LINK).
+For detailed architecture and training descriptions, see the [FactSheet (PDF)](Factsheet.pdf).
 
 ---
 
@@ -169,7 +169,7 @@ This repository is released under the [MIT License](LICENSE).
 ### Acknowledgements
 - [Restormer](https://github.com/swz30/Restormer) — Transformer architecture inspiration
 - [CBAM](https://github.com/Jongchan/attention-module) — Spatial attention module
-- [RESIDE Dataset](https://sites.google.com/view/raboresilientimageresearch/reside) — Synthetic haze training data
-- [NH-Haze](https://competitions.codalab.org/competitions/22236) — Real non-homogeneous haze pairs
+- [RESIDE Dataset](https://sites.google.com/view/reside-dehaze-datasets/reside-standard) — Synthetic haze training data
+- [NH-Haze](https://arxiv.org/abs/2005.03457) — Real non-homogeneous haze pairs
 - NTIRE 2026 Challenge Organizers
 
