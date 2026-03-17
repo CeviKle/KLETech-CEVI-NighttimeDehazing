@@ -1,8 +1,8 @@
 # NTIRE 2026 Challenge on Nighttime Image Dehazing — Team KLETech-CEVI
 
-This repository contains the official code submission for **Team KLETech-CEVI** in the [NTIRE 2026 Nighttime Image Dehazing Challenge](https://codalab.lisn.upsaclay.fr/competitions/).
+This repository contains the official code submission for **Team KLETech-CEVI** in the [NTIRE 2026 Nighttime Image Dehazing Challenge](https://www.codabench.org/competitions/12855/).
 
-Our solution, **NightDehazeNet**, is a Multi-Scale Attention U-Net trained via a 3-stage curriculum learning strategy, achieving **PSNR: 20.785 dB** and **SSIM: 0.675** on the challenge validation set.
+Our solution, **NightDehazeNet**, is a Multi-Scale Attention U-Net trained via a 3-stage curriculum learning strategy, achieving **PSNR: 20.785 dB** and **SSIM: 0.675** on the challenge testing set.
 
 ---
 
@@ -54,7 +54,7 @@ python -c "import torch; print(f'PyTorch {torch.__version__}'); print(f'CUDA ava
 
 ## ⚙️ 3. Pretrained Model Weights
 
-Download the pretrained weights from [Google Drive](TODO_ADD_LINK) and place them in the `model_weights/` folder:
+Download the pretrained weights from [Google Drive](https://drive.google.com/drive/folders/16hzU_XVK22y0htGTUmFstmSZJ4gLyUy4?usp=sharing) and place them in the `model_weights/` folder:
 
 ```
 model_weights/
@@ -74,7 +74,6 @@ python generate_submission.py \
     --input /path/to/test_images \
     --output ./output_results \
     --checkpoint model_weights/best_model.pth \
-    --tile_size 512 \
     --overlap 160 \
     --self_ensemble
 ```
@@ -86,7 +85,6 @@ python generate_submission.py \
 | `--input` | Path to test images | Directory containing hazy nighttime input images |
 | `--output` | `./output_results` | Directory to save dehazed output images |
 | `--checkpoint` | `model_weights/best_model.pth` | Path to the trained model weights |
-| `--tile_size` | `512` | Tile size for seamless tiled inference |
 | `--overlap` | `160` | Overlap between tiles for Gaussian blending |
 | `--self_ensemble` | Flag | Enables 8× geometric self-ensemble for improved quality |
 
